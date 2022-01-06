@@ -10,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header title="I bought a domain." />
+        <Header title="Hi. I bought a domain." />
       </main>
 
     </div>
