@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import pic from './resources/JKohlProfile.jpg'
 
 export default function Home() {
   return (
@@ -10,11 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-        <p>This is a dummy line to test deployment</p>
+        <Header title="Hi. I bought a domain." />
+        <img src={pic}></img>
       </main>
 
       <Footer />
