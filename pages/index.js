@@ -6,15 +6,15 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>JKohl Intern Application</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <p>This is a dummy line to test deployment</p>
       <main>
         <Header title="Welcome to my app!" />
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
+        <p>This is a dummy line to test deployment</p>
       </main>
 
       <Footer />
