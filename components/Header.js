@@ -1,3 +1,10 @@
-export default function Header({ title }) {
-  return <h1 className="title">{title}</h1>
-}
+import React from 'react';
+
+const Header = ({ title }) => {
+
+  return (
+    <h1>{title}</h1>
+  );
+};
+
+export default Header;
