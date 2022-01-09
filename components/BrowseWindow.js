@@ -5,9 +5,9 @@ const BrowseWindow = ({ rover }) => {
   //Query API based on selected rover and map to image components
 
   return (
-    <h1>Browse Window</h1>
-
-
+    <div className='body'>
+      <h1>Browse Window</h1>
+    </div>
   );
 };
 

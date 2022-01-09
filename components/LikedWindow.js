@@ -5,9 +5,9 @@ const LikeWindow = () => {
   //Header Bar to select Rover, Browse page, Liked Page
 
   return (
-    <h1>Root Window</h1>
-
-
+    <div>
+      <h1>Liked Window</h1>
+    </div>
   );
 };
 

@@ -6,9 +6,9 @@ const Image = ({ image }) => {
   //like button adds to local storage
 
   return (
-    <h1>Root Window</h1>
-
-
+    <div className='imageComponent'>
+      <h1>Image Component</h1>
+    </div>
   );
 };
 
