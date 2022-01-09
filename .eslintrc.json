@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "hackreactor"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        // // allow .js files to contain JSX code
+        // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        // // ignore errors for the react-navigation package
+        // "react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }]
+    }
+}
