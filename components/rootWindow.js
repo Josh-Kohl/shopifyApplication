@@ -10,7 +10,7 @@ const RootWindow = () => {
   //Header Bar to select Rover, Browse page, Liked Page
 
   return (
-    <div>
+    <div className='root'>
       <Header></Header>
       <BrowseWindow></BrowseWindow>
       <LikedWindow></LikedWindow>

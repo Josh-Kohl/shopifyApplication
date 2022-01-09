@@ -4,7 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "hackreactor"
+        "hackreactor",
+        "plugin:@next/next/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
