@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import credentials from '../credentials';
 
 import Header from './Header';
 import BrowseWindow from './BrowseWindow';
@@ -20,29 +21,19 @@ const RootWindow = () => {
   //   fetch()
   // );
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   console.log('Build Environment: ', process.env.NODE_ENV, process.env.NASA_API_KEY);
-  //   // eslint-disable-next-line quotes
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${credentials.NASA_API_KEY}`;
 
-  //   // if (process.env.NODE_ENV === 'development') {
-  //   //   let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${credentials.NASA_API_KEY}`;
-  //   // } else if (process.env.NODE_ENV === 'production') {
-  //   //   let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${process.env.NASA_API_KEY}`;
-  //   // }
-
-  //   let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${credentials.NASA_API_KEY}`;
+    axios.get(roverRoute)
+      .then((response) => {
+        console.log(response.data.photos);
+        setImages(response.data);
+      });
+  }, []);
 
 
-  //   axios.get(roverRoute)
-  //     .then((response) => {
-  //       console.log(response.data.photos);
-  //       setImages(response.data);
-  //     });
-  // }, []);
-
-
-  console.log('Build Environment: ', process.env.NODE_ENV, process.env.NEXT_PUBLIC_NASA_API_KEY);
+  console.log('Build Environment: ', process.env.NODE_ENV, process.env.NASA_API_KEY);
 
   return (
     <div className='root'>
