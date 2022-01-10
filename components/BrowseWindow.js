@@ -1,10 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import styles from './Header.module.css';
 
 const BrowseWindow = ({ images }) => {
@@ -21,10 +21,19 @@ const BrowseWindow = ({ images }) => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={tile.img_src} alt={tile.title} />
             <ImageListItemBar
-              title={tile.camera.name}
+              title={
+                'Rover: ' + tile.rover.name +
+                ', Earth Date: ' + tile.earth_date
+              }
+              subtitle={
+                'Camera: ' + tile.camera.full_name +
+                ', Sol Date: ' + tile.sol
+              }
+
+              //TODO: Change color on click and dd to local storage
               actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={styles.icon}>
-                  <InfoIcon />
+                <IconButton aria-label={`info about ${tile.title}`} >
+                  <FavoriteIcon color="secondary"/>
                 </IconButton>
               }
             />

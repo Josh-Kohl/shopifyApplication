@@ -21,14 +21,14 @@ const RootWindow = () => {
   //   fetch()
   // );
 
-  //Returns a random Sol date (day since mission start) up to 1000
+  //Returns a random Sol date (day since mission start) up to 750
   let randomSolDay = () => {
-    return Math.floor(Math.random() * (1000));
+    return Math.floor(Math.random() * (750));
   };
 
   useEffect(() => {
     let sol = randomSolDay();
-    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=${sol}&page=1&api_key=${credentials.NASA_API_KEY}`;
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=${sol}&api_key=${credentials.NASA_API_KEY}`;
 
     axios.get(roverRoute)
       .then((response) => {
