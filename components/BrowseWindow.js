@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BrowseWindow = ({ rover }) => {
+const BrowseWindow = ({ rover, display }) => {
 
   //Query API based on selected rover and map to image components
 
