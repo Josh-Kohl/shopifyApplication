@@ -21,24 +21,29 @@ const RootWindow = () => {
   //   fetch()
   // );
 
-  useEffect(() => {
+  //Returns a random Sol date (day since mission start) up to 1000
+  let randomSolDay = () => {
+    return Math.floor(Math.random() * (1000));
+  };
 
-    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${credentials.NASA_API_KEY}`;
+  useEffect(() => {
+    let sol = randomSolDay();
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=${sol}&page=1&api_key=${credentials.NASA_API_KEY}`;
 
     axios.get(roverRoute)
       .then((response) => {
         console.log(response.data.photos);
-        setImages(response.data);
+        setImages(response.data.photos);
+      }).catch((err) => {
+        console.log(err);
+        alert('Oops. Looks like your images got lost in space.');
       });
   }, []);
-
-
-  console.log('Build Environment: ', process.env.NODE_ENV, process.env.NASA_API_KEY);
 
   return (
     <div className='root'>
       <Header changeDisplay={setDisplay} changeRover={setRover}></Header>
-      <BrowseWindow></BrowseWindow>
+      <BrowseWindow rover={images} ></BrowseWindow>
     </div>
   );
 };
