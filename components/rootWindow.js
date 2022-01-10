@@ -22,12 +22,13 @@ const RootWindow = () => {
 
   useEffect(() => {
     // eslint-disable-next-line quotes
-    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&api_key=${credentials.NASA_API_KEY}`;
+    // let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${credentials.NASA_API_KEY}`;
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${process.env.NASA_API_KEY}`;
 
     axios.get(roverRoute)
       .then((response) => {
-        console.log(response.data);
-        // setImages(response.data);
+        console.log(response.data.photos);
+        setImages(response.data);
       });
   }, []);
 
@@ -42,3 +43,24 @@ const RootWindow = () => {
 };
 
 export default RootWindow;
+
+// Individual Photo Data: {
+//   camera:{
+//     full_name: "Front Hazard Avoidance Camera"
+//     id: 20
+//     name: "FHAZ"
+//     rover_id: 5
+//   },
+//   earth_date: "2015-05-30"
+//   id: 102693
+//   img_src: "http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG"
+//   rover:{
+//     id: 5
+//     landing_date: "2012-08-06"
+//     launch_date: "2011-11-26"
+//     name: "Curiosity"
+//     status: "active"
+//   },
+//   sol: 1000}
+
+
