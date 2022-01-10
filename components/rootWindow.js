@@ -43,7 +43,7 @@ const RootWindow = () => {
   return (
     <div className='root'>
       <Header changeDisplay={setDisplay} changeRover={setRover}></Header>
-      <BrowseWindow rover={images} ></BrowseWindow>
+      <BrowseWindow images={images} ></BrowseWindow>
     </div>
   );
 };
