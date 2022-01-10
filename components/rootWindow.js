@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import credentials from '../credentials';
+import credentials from '../credentials';
 
 import Header from './Header';
 import BrowseWindow from './BrowseWindow';
 import LikedWindow from './LikedWindow';
+
 
 const RootWindow = () => {
   const [display, setDisplay] = useState('Rover');
@@ -22,7 +23,7 @@ const RootWindow = () => {
 
   useEffect(() => {
 
-    console.log('Build Environment: ', process.env.NODE_ENV);
+    console.log('Build Environment: ', process.env.NODE_ENV, process.env.NASA_API_KEY);
     // eslint-disable-next-line quotes
 
     // if (process.env.NODE_ENV === 'development') {
@@ -31,7 +32,7 @@ const RootWindow = () => {
     //   let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${process.env.NASA_API_KEY}`;
     // }
 
-    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${process.env.NASA_API_KEY}`;
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${Rover}/photos?sol=1000&page=1&api_key=${credentials.NASA_API_KEY}`;
 
 
     axios.get(roverRoute)
