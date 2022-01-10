@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import credentials from '../ credentials';
+import credentials from '../credentials';
 
 import Header from './Header';
 import BrowseWindow from './BrowseWindow';
