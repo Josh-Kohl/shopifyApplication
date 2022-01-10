@@ -42,7 +42,7 @@ const RootWindow = () => {
   // }, []);
 
 
-  console.log('Build Environment: ', process.env.NODE_ENV, process.env.NASA_API_KEY);
+  console.log('Build Environment: ', process.env.NODE_ENV, process.env.NEXT_PUBLIC_NASA_API_KEY);
 
   return (
     <div className='root'>
