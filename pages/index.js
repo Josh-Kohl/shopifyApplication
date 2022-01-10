@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Header from '@components/Header';
 // import RootWindow from '@components/RootWindow';
-import RootWindow from '../components/RootWindow';
+import RootWindow from '../components/rootWindow';
 
 export default function Home() {
   return (
