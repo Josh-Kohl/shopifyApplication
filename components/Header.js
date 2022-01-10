@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/globals.css';
+import styles from './Header.module.css';
 
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
   //Header Bar to select Rover, Browse page, Liked Page
 
   return (
-    <div className='header'>
+    <div className='styles.header'>
       <h1>Header Component</h1>
     </div>
   );
