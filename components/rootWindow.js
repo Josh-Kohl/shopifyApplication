@@ -8,7 +8,7 @@ import LikedWindow from './LikedWindow';
 
 
 const RootWindow = () => {
-  const [display, setDisplay] = useState('Rover');
+  const [display, setDisplay] = useState('browse');
   const [rover, setRover] = useState('curiosity');
   const [images, setImages] = useState([]);
 
@@ -43,10 +43,10 @@ const RootWindow = () => {
 
   useEffect(() => {
     let sol = randomSolDay();
-    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&api_key=${credentials.NASA_API_KEY}`;
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${credentials.NASA_API_KEY}`;
 
     queryNASA(roverRoute);
-  }, []);
+  }, [rover]);
 
   return (
     <div className='root'>
