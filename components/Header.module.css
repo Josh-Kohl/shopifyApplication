@@ -17,5 +17,11 @@
 };
 
 .buttonBar {
+  display: flex;
   justify-content: space-between;
-}
+
+};
+
+.button {
+  border-radius: 20px;
+};

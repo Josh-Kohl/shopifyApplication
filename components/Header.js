@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Header.module.css';
+// import styles from './Header.module.css';
 import Button from '@material-ui/core/Button';
 
 
@@ -18,20 +18,22 @@ const Header = ( { changeDisplay, changeRover }) => {
   };
 
   return (
-    <div className={styles.header}>
+    <div className='header'>
       <h1>Mars Rover Feed</h1>
 
-      <button variant="contained" value='browse' onClick={handleViewClick}>New Photos</button>
-      <button variant="contained" value='liked' onClick={handleViewClick}>Liked Images</button>
+      <button value='browse' onClick={handleViewClick} className="navButton">New Photos</button>
+      <button value='liked' onClick={handleViewClick} className="navButton">Liked Images</button>
 
-      <div className={styles.buttonBar}>
-        <p>Choose a Rover: </p>
-        <button value='curiosity' onClick={handleRoverClick}>Curiosity</button>
-        <button value='opportunity' onClick={handleRoverClick}>Opportunity</button>
-        <button value='spirit' onClick={handleRoverClick}>Spirit</button>
+      <h4>Choose a Rover</h4>
+      <button value='curiosity' onClick={handleRoverClick} className="navButton">Curiosity</button>
+      <button value='opportunity' onClick={handleRoverClick} className="navButton">Opportunity</button>
+      <button value='spirit' onClick={handleRoverClick} className="navButton">Spirit</button>
+
+      <div>
       </div>
     </div>
   );
 };
 
 export default Header;
+

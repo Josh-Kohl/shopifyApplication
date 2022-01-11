@@ -1,18 +1,19 @@
 html,
 
 body {
-  padding: 0;
-  margin: 0;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: whitesmoke;
+  background: whitesmoke;
 
   }
 
 code {
   background: #3d405b;
   border-radius: 5px;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
 };
 
@@ -21,8 +22,36 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-
-
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  /* height: 15%; */
+
+  background-color: #C67B5C;
+  color: #3d405b;
+  font-size: 150%;
+  font-style: italic;
+  font-weight: bold;
+
+  margin-bottom: 1%;
+  /* padding: 1% */
+}
+
+.navButton {
+  border-radius: 8px;
+  /* margin: 1%; */
+  background-color: #4CAF50;
+
+  align-self: flex-start
+};
+
+.roverButton {
+  border-radius: 8px;
+  margin: 1%;
+  background-color: #4CAF50;
+
+};
