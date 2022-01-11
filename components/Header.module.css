@@ -2,15 +2,20 @@
   /* Layout */
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  height: 9vh;
-  min-height: 65px;
+  /* height: 15%; */
 
   /* Color */
-  background-color: rgb(82, 82, 82);
+  background-color: #E2725B;
 
-  color: white;
-  font-size: 200%;
+  color: #3d405b;
+  font-size: 150%;
   font-style: italic;
   font-weight: bold;
+
+  margin: 1%;
+  padding: 1%
 };
+
+.buttonBar {
+  justify-content: space-between;
+}
