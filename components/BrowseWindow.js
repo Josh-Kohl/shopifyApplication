@@ -10,6 +10,10 @@ import styles from './Header.module.css';
 const BrowseWindow = ({ images }) => {
 
 
+  let handleClick = (post) => {
+    console.log('clicked a button', post);
+  };
+
   return (
     <div className={styles.browseWindow}>
       <ImageList rowHeight={300} gap={30} className={styles.gridList}>
@@ -17,6 +21,9 @@ const BrowseWindow = ({ images }) => {
         {images.map((tile) => (
 
           <ImageListItem
+            onClick={() => {
+              handleClick(tile);
+            }}
             key={tile.id}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={tile.img_src} alt={tile.title} />
@@ -32,7 +39,7 @@ const BrowseWindow = ({ images }) => {
 
               //TODO: Change color on click and dd to local storage
               actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} >
+                <IconButton aria-label={`info about ${tile.title}`}>
                   <FavoriteIcon color="secondary"/>
                 </IconButton>
               }
