@@ -28,7 +28,7 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   /* height: 15%; */
 
   background-color: #C67B5C;
@@ -43,10 +43,10 @@ code {
 
 .navButton {
   border-radius: 8px;
-  /* margin: 1%; */
+  margin: 1%;
   background-color: #4CAF50;
 
-  align-self: flex-start
+  align-self: center
 };
 
 .roverButton {
