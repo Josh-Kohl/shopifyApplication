@@ -1,54 +1,54 @@
-import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import styles from './BrowseWindow.module.css';
 
 const BrowseWindow = ({ images }) => {
+  const [iconTrigger, setIconTrigger] = useState(true);
 
   let handleClick = (post) => {
+    post.liked = !post.liked;
     console.log('clicked a button', post);
+    setIconTrigger(!iconTrigger);
+  };
+
+
+  //Check local storage. If tile id is !present : primary || secondary
+
+  //add or remove from local storage prop
+
+  let iconColor = (liked) => {
+    return (liked ? 'secondary' : 'primary');
   };
 
   return (
-    <div className={styles.browseWindow}>
-      <ImageList rowHeight={400} gap={20} className={styles.gridList} >
+    <div>
+      <ImageList rowHeight={600} gap={20} >
 
         {images.map((tile) => (
           <ImageListItem
-
-            onClick={() => {
-              handleClick(tile);
-            }}
-
             key={tile.id}>
-
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={tile.img_src} alt={tile.title} />
-
             <ImageListItemBar
               title={
-                'Rover: ' + tile.rover.name +
-                ', Earth Date: ' + tile.earth_date
-              }
+                'Rover: ' + tile.rover.name + ', Earth Date: ' + tile.earth_date}
               subtitle={
-                'Camera: ' + tile.camera.full_name +
-                ', Sol Date: ' + tile.sol
-              }
+                'Camera: ' + tile.camera.full_name + ', Sol Date: ' + tile.sol}
 
-              //TODO: Change color on click and dd to local storage
               actionIcon={
                 <IconButton aria-label={`info about ${tile.title}`}>
-                  <FavoriteIcon color="secondary"/>
+                  <FavoriteIcon
+                    // color="primary"
+                    color={iconColor(tile.liked)}
+                    onClick={() => { handleClick(tile); }}/>
                 </IconButton>
               }
             />
           </ImageListItem>
         ))}
-
       </ImageList>
     </div>
   );

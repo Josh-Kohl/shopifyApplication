@@ -29,7 +29,6 @@ code {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* height: 15%; */
 
   background-color: #C67B5C;
   color: #3d405b;
@@ -42,16 +41,27 @@ code {
 }
 
 .navButton {
-  border-radius: 8px;
+  /* border-radius: 8px; */
   margin: 1%;
-  background-color: #4CAF50;
+  font-size: 15px;
+  padding: 10px 24px;
+  width: 150px
 
-  align-self: center
+  /* align-self: center */
 };
 
 .roverButton {
   border-radius: 8px;
   margin: 1%;
-  background-color: #4CAF50;
+  background-color: #20201d;
 
+};
+
+.feedButtons {
+  background: #3d405b;
+};
+
+.butt {
+  border-style: solid;
+  flex-direction: column,
 };

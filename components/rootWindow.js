@@ -2,24 +2,22 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import credentials from '../credentials';
 
-import Header from './Header';
+import NavBar from './NavBar';
 import BrowseWindow from './BrowseWindow';
 import LikedWindow from './LikedWindow';
-
 
 const RootWindow = () => {
   const [display, setDisplay] = useState('browse');
   const [rover, setRover] = useState('curiosity');
   const [images, setImages] = useState([]);
 
-  //fx to change display - to be used in header
-  //fx to change rover -  to be used in header
+  //fx to change display - to be used in NavBar
 
-  //fx to get images from API
 
-  // const getPhotos = ({rover}) => (
-  //   fetch()
-  // );
+  //Create localStorage if !exists
+  //else pull images and setState
+
+
 
   //Returns a random Sol date (day since mission start) up to 750
   let randomSolDay = () => {
@@ -29,28 +27,35 @@ const RootWindow = () => {
   let queryNASA = (route) => {
     axios.get(route)
       .then((response) => {
-        //Edge case where response contains empty array.
-        if (response.data.photos.length === 0) {
-          throw ('Looks like there was an issue grabbing new photos. Refresh the page to try again.');
+        let roverPhotos = response.data.photos;
+
+        //Edge case where response contains empty photo array.
+        if (roverPhotos.length === 0) {
+          throw (`Looks like ${rover} didn't take any photos on this day. Refresh the page to try again.`);
         }
+
+
+        //Assign each photo a property to display liked status on image tile
+        roverPhotos.forEach((photo) => {
+          photo.liked = false;
+        });
 
         setImages(response.data.photos);
       }).catch((err) => {
         console.log(err);
-        alert('Oops. Looks like your images got lost in space. Refresh the page to request new images.');
+        alert(`Oops. Looks like ${rover} didn't take any photos on this day. Refresh the page to try a new day.`);
       });
   };
 
   useEffect(() => {
     let sol = randomSolDay();
-    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${credentials.NASA_API_KEY}`;
-
+    let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&camera=fhaz&api_key=${credentials.NASA_API_KEY}`;
     queryNASA(roverRoute);
   }, [rover]);
 
   return (
     <div className='root'>
-      <Header changeDisplay={setDisplay} changeRover={setRover}></Header>
+      <NavBar changeDisplay={setDisplay} changeRover={setRover}></NavBar>
       <BrowseWindow images={images} ></BrowseWindow>
     </div>
   );
@@ -58,6 +63,5 @@ const RootWindow = () => {
 
 export default RootWindow;
 
-//TODO
 
 
