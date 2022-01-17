@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import credentials from '../credentials';
 
-import NavBar from './NavBar';
 import BrowseWindow from './BrowseWindow';
-
 import Header from './Header';
 
 const RootWindow = () => {
@@ -47,8 +45,7 @@ const RootWindow = () => {
 
   return (
     <div className='root'>
-      {/* <NavBar changeRover={setRover}></NavBar> */}
-      <Header changeRover={setRover}></Header>
+      <Header changeRover={setRover} rover={rover}></Header>
       <BrowseWindow images={images} ></BrowseWindow>
     </div>
   );

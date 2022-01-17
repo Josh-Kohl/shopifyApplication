@@ -8,9 +8,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 const BrowseWindow = ({ images }) => {
   const [renderTrigger, setRenderTrigger] = useState(true);
 
-  //Reset state to trigger component rerender and display like icon change
-  //Not a preferred solution - this is a byproduct of using material UI components
-  //without total control of how props are stored / rendered in ImageList children
+  //Toggle icon color to display favorited status
   let toggleLikeIcon = (post) => {
     post.liked = !post.liked;
     setRenderTrigger(!renderTrigger);
@@ -28,7 +26,7 @@ const BrowseWindow = ({ images }) => {
           <ImageListItem
             key={tile.id}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={tile.img_src} alt={tile.title} />
+            <img src={tile.img_src} alt={tile.title} style={{maxWidth: '100%', maxHeight: 'auto'}}/>
             <ImageListItemBar
               title={
                 'Rover: ' + tile.rover.name + ', Earth Date: ' + tile.earth_date}
@@ -52,4 +50,3 @@ const BrowseWindow = ({ images }) => {
 export default BrowseWindow;
 
 
-//MAKE IMAGE LIST ITEM ITS OWN COMPONENT WITH LIKED STATE THAT CAN BE TOGGLED SO THAT THE WHOLE PAGE DOESNT NEED RERENDRING DUMMY

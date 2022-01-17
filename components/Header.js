@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,9 +9,9 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => ({
   bar: {
     display: 'flex',
-    backgroundColor: '#C67B5C',
+    backgroundColor: '#c1440e',
     color: 'black',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -19,6 +19,13 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  button: {
+    backgroundColor: '#3d405b',
+    color: 'white',
+    fontSize: '90%',
+    marginLeft: '2px',
+    marginRight: '2px',
+  }
 }));
 
 const Header = ( { changeRover } ) => {
@@ -34,37 +41,18 @@ const Header = ( { changeRover } ) => {
     <AppBar className={classes.bar}>
       <Toolbar>
         <Typography variant="h3" className={classes.title}>
-          Rover Feed
+          Mars Rover Feed
         </Typography>
 
-        <Button color="inherit" onClick={handleRoverClick} value='curiosity' style={{
-          backgroundColor: '#3d405b',
-          color: 'white',
-          fontSize: '100%',
-          marginLeft: '2px',
-          marginRight: '2px',
-        }}
-        >
+        <Button color="inherit" onClick={handleRoverClick} value='curiosity' className={classes.button}>
           Curiosity
         </Button>
 
-        <Button color="inherit" onClick={handleRoverClick} value='opportunity' style={{
-          backgroundColor: '#3d405b',
-          color: 'white',
-          fontSize: '100%',
-          marginLeft: '2px',
-          marginRight: '2px',
-        }}>
+        <Button color="inherit" onClick={handleRoverClick} value='opportunity' className={classes.button}>
           Opportunity
         </Button>
 
-        <Button color="inherit" onClick={handleRoverClick} value='spirit' style={{
-          backgroundColor: '#3d405b',
-          color: 'white',
-          fontSize: '100%',
-          marginLeft: '2px',
-          marginRight: '2px',
-        }}>
+        <Button color="inherit" onClick={handleRoverClick} value='spirit' className={classes.button}>
           Spirit
         </Button>
 
