@@ -33,10 +33,10 @@ const BrowseWindow = ({ images }) => {
               subtitle={
                 'Camera: ' + tile.camera.full_name + ', Sol Date: ' + tile.sol}
               actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`}>
+                <IconButton aria-label={`info about ${tile.title}`} onClick={() => { toggleLikeIcon(tile); }}>
                   <FavoriteIcon
                     color={iconColor(tile.liked)}
-                    onClick={() => { toggleLikeIcon(tile); }}/>
+                  />
                 </IconButton>
               }
             />

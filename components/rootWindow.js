@@ -9,9 +9,17 @@ const RootWindow = () => {
   const [rover, setRover] = useState('curiosity');
   const [images, setImages] = useState([]);
 
-  //Returns a random Sol date (day since mission start) up to 750
-  let randomSolDay = () => {
-    return Math.floor(Math.random() * (750));
+  //Returns random index for Sol date (day since mission start) from validSolDate obj
+  let randomSolDay = (rover) => {
+    let validSolDates = {
+      curiosity: [67, 65, 679, 999, 524, 706, 707],
+      opportunity: [340, 603, 554, 394, 70, 169, 999],
+      spirit: [556, 290, 192, 45, 671, 747, 74]
+    };
+
+    let index = Math.floor(Math.random() * 7);
+
+    return validSolDates[rover][index];
   };
 
   let queryNASA = (route) => {
@@ -38,7 +46,7 @@ const RootWindow = () => {
 
   //Run API query on initial page loading and selection of new rover
   useEffect(() => {
-    let sol = randomSolDay();
+    let sol = randomSolDay(rover);
     let roverRoute = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&camera=fhaz&api_key=${credentials.NASA_API_KEY}`;
     queryNASA(roverRoute);
   }, [rover]);
