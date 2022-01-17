@@ -6,27 +6,24 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const BrowseWindow = ({ images }) => {
-  const [iconTrigger, setIconTrigger] = useState(true);
+  const [renderTrigger, setRenderTrigger] = useState(true);
 
-  let handleClick = (post) => {
+  //Reset state to trigger component rerender and display like icon change
+  //Not a preferred solution - this is a byproduct of using material UI components
+  //without total control of how props are stored / rendered in ImageList children
+  let toggleLikeIcon = (post) => {
     post.liked = !post.liked;
-    console.log('clicked a button', post);
-    setIconTrigger(!iconTrigger);
+    setRenderTrigger(!renderTrigger);
   };
 
-
-  //Check local storage. If tile id is !present : primary || secondary
-
-  //add or remove from local storage prop
-
+  //Return material UI color theme for like icon
   let iconColor = (liked) => {
     return (liked ? 'secondary' : 'primary');
   };
 
   return (
-    <div>
-      <ImageList rowHeight={600} gap={20} >
-
+    <div className='imageList'>
+      <ImageList rowHeight={600} gap={10} >
         {images.map((tile) => (
           <ImageListItem
             key={tile.id}>
@@ -37,13 +34,11 @@ const BrowseWindow = ({ images }) => {
                 'Rover: ' + tile.rover.name + ', Earth Date: ' + tile.earth_date}
               subtitle={
                 'Camera: ' + tile.camera.full_name + ', Sol Date: ' + tile.sol}
-
               actionIcon={
                 <IconButton aria-label={`info about ${tile.title}`}>
                   <FavoriteIcon
-                    // color="primary"
                     color={iconColor(tile.liked)}
-                    onClick={() => { handleClick(tile); }}/>
+                    onClick={() => { toggleLikeIcon(tile); }}/>
                 </IconButton>
               }
             />

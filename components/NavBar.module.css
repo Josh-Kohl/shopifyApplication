@@ -1,6 +1,26 @@
-.butt {
-  border-style: solid;
-  flex-direction: column,
+.titleBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #C67B5C;
+  color: #3d405b;
+
+  font-size: 150%;
+  font-style: bold;
+
+  margin-bottom: 1%;
+  max-height: 80px;
+}
+
+.roverWindow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 100%;
 };
 
-
+.title {
+  margin: 0;
+}
