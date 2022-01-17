@@ -5,6 +5,8 @@ import credentials from '../credentials';
 import NavBar from './NavBar';
 import BrowseWindow from './BrowseWindow';
 
+import Header from './Header';
+
 const RootWindow = () => {
   const [rover, setRover] = useState('curiosity');
   const [images, setImages] = useState([]);
@@ -45,7 +47,8 @@ const RootWindow = () => {
 
   return (
     <div className='root'>
-      <NavBar changeRover={setRover}></NavBar>
+      {/* <NavBar changeRover={setRover}></NavBar> */}
+      <Header changeRover={setRover}></Header>
       <BrowseWindow images={images} ></BrowseWindow>
     </div>
   );

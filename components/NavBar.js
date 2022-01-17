@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 
-const NavBar = ( { changeRover }) => {
-  //Change rover selection in root component state. Triggers page rerender.
+const NavBar = ( { changeRover } ) => {
+  //Change rover selection in root component state. Triggers page rerender and new image feed.
   let handleRoverClick = (e) => {
     changeRover(e.target.value);
   };
